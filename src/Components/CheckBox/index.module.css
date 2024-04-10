@@ -1,49 +1,45 @@
 .input {
-    /* removing default appearance */
-    -webkit-appearance: none;
-    appearance: none;
-    /* creating a custom design */
-    width: 1.6em;
-    height: 1.6em;
-    border-radius: 0.15em;
-    margin-right: 0.5em;
-    border: 0.15em solid black;
-    outline: none;
-    cursor: pointer;
-  }
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  border: 0.15em solid black;
+  outline: none;
+  cursor: pointer;
+}
 
-  .label {
-    display: flex;
-    align-items: center;
-  }
+.label {
+  display: flex;
+  align-items: center;
+}
 
-  input:checked {
-    background: linear-gradient(
-        90deg,
-        rgba(24, 173, 237, 1) 10%,
-        rgba(68, 68, 208, 1) 100%
-      );
-    position: relative;
-  }
-  
-  input:checked::before {
-    /* content: "2714"; */
-    font-size: 1.5em;
-    color: #fff;
-    position: absolute;
-    right: 1px;
-    top: -5px;
-  }
+input:checked {
+  background: linear-gradient(
+    90deg,
+    rgba(24, 173, 237, 1) 10%,
+    rgba(68, 68, 208, 1) 100%
+  );
+  position: relative;
+}
 
- .input:disabled {
-    border-color: #c0c0c0;
-    background-color: #c0c0c0;
-  }
-  
-  .input:disabled + span {
-    color: #c0c0c0;
-  }
-  
-  .checkBoxWrapperinput[type="checkbox"]:focus {
-    box-shadow: 0 0 20px #007a7e;
-  }
+input:checked::before {
+  /* content: "2714"; */
+  font-size: 1.5em;
+  color: #fff;
+  position: absolute;
+  right: 1px;
+  top: -5px;
+}
+
+.input:disabled {
+  border-color: #c0c0c0;
+  background-color: #c0c0c0;
+}
+
+.input:disabled + span {
+  color: #c0c0c0;
+}

@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './index.module.css';
 
-const Dot = ({ color, onClick }) => {
+const ColorDot = ({ color, onClick }) => {
   return (
     <div
       className={styles.dot}
       style={{ background: color }}
-      onClick={() => onClick()}></div>
+      onClick={() => onClick()}
+    ></div>
   );
 };
 
-export default Dot;
+export default ColorDot;

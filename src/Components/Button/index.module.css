@@ -22,26 +22,6 @@
   transition: 200ms;
 }
 
-.buttonsecondary {
-  display: flex;
-  align-items: center;
-  max-height: 25px;
-  border: none;
-  border-radius: 15px;
-  background-color: #ecebef;
-  font-size: 0.9rem;
-  padding: 5px 10px;
-}
-
-.buttontertiary {
-  min-width: 25%;
-  border: none;
-  border-radius: 5px;
-  background-color: #ecebef;
-  font-size: 1.25rem;
-  padding: 5px 20px;
-}
-
 .icon {
   width: 16px;
   height: 16px;

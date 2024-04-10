@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './index.module.css';
 
 const Checkbox = ({ label, checked, onChange }) => {
-
   return (
     <div className={styles.checkBoxWrapper}>
       <label className={styles.label}>

@@ -56,7 +56,7 @@ export const useUtils = (value, todos, setValue) => {
     dispatch(getTodos());
   };
 
-  const resolveSingleTodo = (todo, index) => {
+  const resolveSingleTodoHandler = (todo, index) => {
     dispatch(editTodo({ ...todo, isResolved: !todo.isResolved }));
   };
 
@@ -67,6 +67,6 @@ export const useUtils = (value, todos, setValue) => {
     deleteHandler,
     addHandler,
     getAllTodos,
-    resolveSingleTodo,
+    resolveSingleTodoHandler,
   };
 };

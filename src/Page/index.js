@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { SketchPicker } from 'react-color';
 import {
   CheckBox,
-  Dot,
+  ColorDot,
   Menu,
   Todos,
   Modal,
@@ -17,10 +17,11 @@ import {
   CLEAR_FILTERS,
   FILTERS,
   MY_TASKS,
-  PIC_COLOR,
+  PICK_COLOR,
   RESOLVED,
   UNRESOLVED,
   WHITE_COLOR,
+  COLORS,
 } from '../Constants';
 
 const Page = () => {
@@ -43,26 +44,23 @@ const Page = () => {
     deleteHandler,
     addHandler,
     getAllTodos,
-    resolveSingleTodo,
+    resolveSingleTodoHandler,
   } = useUtils(value, todos, setValue);
 
   useEffect(() => {
     getAllTodos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const dotColors = (todos) => {
+  const setDotColors = (todos) => {
     const allColors = todos?.map((todo) => todo.color);
     const uniquesColors = new Set(allColors);
     setColorsforFilter(Array.from(uniquesColors));
   };
 
   useEffect(() => {
-    dotColors(todos);
+    setDotColors(todos);
   }, [todos]);
-
-  if (loading) {
-    return <Loading />;
-  }
 
   const handleColorChange = (selectedColor) => {
     setColor(selectedColor.hex);
@@ -75,6 +73,10 @@ const Page = () => {
     setSelectedTodo(null);
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div className={styles.page}>
       {isOpen && (
@@ -84,7 +86,7 @@ const Page = () => {
             setIsOpen(false);
           }}
           onAddColor={addColorHandler}
-          header={PIC_COLOR}
+          header={PICK_COLOR}
         >
           <SketchPicker color={color} onChange={handleColorChange} />
         </Modal>
@@ -125,10 +127,10 @@ const Page = () => {
             />
           </div>
           <div>
-            <h5>Colors</h5>
+            <h5>{COLORS}</h5>
             <div className={styles.colorFilter}>
               {colorsForFilter.map((color) => (
-                <Dot
+                <ColorDot
                   color={color}
                   key={color}
                   onClick={() => setFilterColor(color)}
@@ -142,7 +144,7 @@ const Page = () => {
           resolved={resolved}
           unresolved={unresolved}
           deleteTodoHandler={deleteTodoHandler}
-          resolveSingleTodo={resolveSingleTodo}
+          resolveSingleTodoHandler={resolveSingleTodoHandler}
           openModal={() => setIsOpen(true)}
           setSelectedTodo={setSelectedTodo}
           selectedColor={filterColor}
