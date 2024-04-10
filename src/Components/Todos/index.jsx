@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Todo } from '..';
 
 const Todos = ({
@@ -58,6 +59,17 @@ const Todos = ({
       })}
     </>
   );
+};
+
+Todos.propTypes = {
+  todos: PropTypes.array,
+  resolved: PropTypes.bool,
+  unresolved: PropTypes.bool,
+  deleteTodoHandler: PropTypes.func,
+  resolveSingleTodo: PropTypes.func,
+  openModal: PropTypes.func,
+  setSelectedTodo: PropTypes.func,
+  selectedColor: PropTypes.string,
 };
 
 export default Todos;

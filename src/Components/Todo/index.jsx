@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CheckBox, Button } from '..';
 import styles from './index.module.css';
 import { ADD_COLOR, DELETE, RESOLVE, WHITE_COLOR, DONE } from '../../Constants';
@@ -31,6 +32,15 @@ const Todo = ({
       </div>
     </div>
   );
+};
+
+Todo.propTypes = {
+  text: PropTypes.string,
+  onDelete: PropTypes.func,
+  isResolved: PropTypes.bool,
+  resolveSingleTodo: PropTypes.func,
+  color: PropTypes.string,
+  addColor: PropTypes.func,
 };
 
 export default Todo;

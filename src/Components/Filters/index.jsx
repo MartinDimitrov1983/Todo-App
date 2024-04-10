@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CheckBox, ColorDot, Button } from '..';
 import {
   CLEAR_FILTERS,
@@ -60,6 +61,15 @@ const Filters = ({
       </div>
     </>
   );
+};
+
+Filters.propTypes = {
+  resolved: PropTypes.bool,
+  unresolved: PropTypes.bool,
+  dotColors: PropTypes.array,
+  setResolved: PropTypes.func,
+  setUnresolved: PropTypes.func,
+  setFilterColor: PropTypes.func,
 };
 
 export default Filters;

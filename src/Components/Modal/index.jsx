@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { Button } from '..';
 import { ADD_COLOR, CLOSE, MODAL_ROOT } from '../../Constants';
 import styles from './index.module.css';
@@ -29,6 +30,14 @@ const Modal = ({ isOpen, onClose, onAddColor, header, children }) => {
         document.getElementById(MODAL_ROOT),
       )
     : null;
+};
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+  onAddColor: PropTypes.func,
+  header: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default Modal;

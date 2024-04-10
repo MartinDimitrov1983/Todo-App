@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { ERROR_MESSAGE, URL } from '../../Constants';
+import { ERROR_MESSAGE, URL, WHITE_COLOR } from '../../Constants';
 
 const initialState = {
   todos: [],
@@ -19,7 +19,7 @@ export const getTodos = createAsyncThunk(
           title: todo.title,
           isDone: false,
           isResolved: false,
-          color: '',
+          color: WHITE_COLOR,
         };
       });
     } catch (err) {

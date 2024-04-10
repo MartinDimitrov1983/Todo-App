@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Filters 1`] = `
+<DocumentFragment>
+  <h2
+    class="title"
+  >
+    My Tasks
+  </h2>
+  <div>
+    <div
+      class="filters"
+    >
+      <h4>
+        Filters
+      </h4>
+      <button
+        class="button"
+        type="button"
+      >
+        <div>
+          Clear Filters
+        </div>
+      </button>
+    </div>
+    <div
+      class="filter"
+    >
+      <div
+        class="checkBoxWrapper"
+      >
+        <label
+          class="label"
+        >
+          <input
+            class="input"
+            type="checkbox"
+          />
+          <span>
+            Resolved
+          </span>
+        </label>
+      </div>
+      <div
+        class="checkBoxWrapper"
+      >
+        <label
+          class="label"
+        >
+          <input
+            class="input"
+            type="checkbox"
+          />
+          <span>
+            Unresolved
+          </span>
+        </label>
+      </div>
+    </div>
+    <div>
+      <h5>
+        Colors
+      </h5>
+      <div
+        class="colorFilter"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
