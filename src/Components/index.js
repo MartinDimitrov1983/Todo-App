@@ -2,6 +2,7 @@ export { default as AddTodo } from './AddTodo';
 export { default as Button } from './Button';
 export { default as CheckBox } from './CheckBox';
 export { default as ColorDot } from './ColorDot';
+export { default as Filters } from './Filters';
 export { default as Loading } from './Loading';
 export { default as Menu } from './Menu';
 export { default as Modal } from './Modal';

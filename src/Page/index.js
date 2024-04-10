@@ -1,28 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SketchPicker } from 'react-color';
-import {
-  CheckBox,
-  ColorDot,
-  Menu,
-  Todos,
-  Modal,
-  Button,
-  Loading,
-} from '../Components';
+import { Menu, Todos, Modal, Loading, Filters } from '../Components';
 import { useUtils } from '../Hooks/index.js';
 import styles from './index.module.css';
 import { editTodo } from '../Redux/slices/todo.js';
-import {
-  CLEAR_FILTERS,
-  FILTERS,
-  MY_TASKS,
-  PICK_COLOR,
-  RESOLVED,
-  UNRESOLVED,
-  WHITE_COLOR,
-  COLORS,
-} from '../Constants';
+import { PICK_COLOR, WHITE_COLOR } from '../Constants';
 
 const Page = () => {
   const todos = useSelector((state) => state.todos.todos);
@@ -34,7 +17,7 @@ const Page = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [color, setColor] = useState(WHITE_COLOR);
   const [selectedTodo, setSelectedTodo] = useState(null);
-  const [colorsForFilter, setColorsforFilter] = useState([]);
+  const [dotColors, setDotColors] = useState([]);
   const [filterColor, setFilterColor] = useState(null);
 
   const {
@@ -52,14 +35,14 @@ const Page = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const setDotColors = (todos) => {
+  const setColorsForDots = (todos) => {
     const allColors = todos?.map((todo) => todo.color);
     const uniquesColors = new Set(allColors);
-    setColorsforFilter(Array.from(uniquesColors));
+    setDotColors(Array.from(uniquesColors));
   };
 
   useEffect(() => {
-    setDotColors(todos);
+    setColorsForDots(todos);
   }, [todos]);
 
   const handleColorChange = (selectedColor) => {
@@ -99,46 +82,15 @@ const Page = () => {
         onInputChangeHandler={(e) => setValue(e.target.value)}
         value={value}
       />
-      {/* Отделен компонент */}
       <main className={styles.children}>
-        <h2 className={styles.title}>{MY_TASKS}</h2>
-        <div>
-          <div className={styles.filters}>
-            <h4>{FILTERS}</h4>
-            <Button
-              onClick={() => {
-                setResolved(false);
-                setUnresolved(false);
-                setFilterColor(false);
-              }}
-              text={CLEAR_FILTERS}
-            />
-          </div>
-          <div className={styles.filter}>
-            <CheckBox
-              label={RESOLVED}
-              checked={resolved}
-              onChange={() => setResolved((prev) => !prev)}
-            />
-            <CheckBox
-              label={UNRESOLVED}
-              checked={unresolved}
-              onChange={() => setUnresolved((prev) => !prev)}
-            />
-          </div>
-          <div>
-            <h5>{COLORS}</h5>
-            <div className={styles.colorFilter}>
-              {colorsForFilter.map((color) => (
-                <ColorDot
-                  color={color}
-                  key={color}
-                  onClick={() => setFilterColor(color)}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+        <Filters
+          resolved={resolved}
+          unresolved={unresolved}
+          setResolved={setResolved}
+          setUnresolved={setUnresolved}
+          setFilterColor={setFilterColor}
+          dotColors={dotColors}
+        />
         <Todos
           todos={todos}
           resolved={resolved}
